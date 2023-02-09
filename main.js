@@ -6,14 +6,31 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+//useful for a cosmopolitan area
+function genRaceEvenOdds() {
+  let randInt = getRandomIntInclusive(0, characteristics.race.length - 1);
+  return characteristics.race[randInt];
+}
+
+function genGender() {
+  let randomInt = getRandomIntInclusive(0, 1);
+  let gender;
+  if (randomInt == 0) {
+    gender = "Male";
+  } else if (randomInt == 1) {
+    gender = "Female";
+  }
+  return gender;
+}
+
 function genTraits() {
   let randArr = [];
   let personalityArr = [];
 
-  for (let i = 0; i < getRandomIntInclusive(3, 5); i++) {
+  for (let i = 0; i < getRandomIntInclusive(2, 5); i++) {
     let num = getRandomIntInclusive(
       0,
-      characteristics.temperament.feelings.length - 1
+      characteristics.character_traits.all.length - 1
     );
     //don't want them to double up on personality traits
     if (num in randArr) {
@@ -23,7 +40,7 @@ function genTraits() {
   }
 
   for (let i = 0; i < randArr.length; i++) {
-    personalityArr.push(characteristics.temperament.feelings[randArr[i]]);
+    personalityArr.push(characteristics.character_traits.all[randArr[i]]);
   }
   return personalityArr;
 }
@@ -68,5 +85,7 @@ function genJob() {
   return jobs;
 }
 
+//console.log(genRaceEvenOdds());
+console.log(genRaceEvenOdds() + " " + genGender());
 console.log(genTraits());
 console.log(genJob());

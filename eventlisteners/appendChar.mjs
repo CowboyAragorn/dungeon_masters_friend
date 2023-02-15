@@ -30,14 +30,16 @@ function appendChar() {
   const traitsLine = document.createElement("p");
   traitsLine.innerHTML = char.pronoun.subject + " is " + traitsString;
   charContainer.append(traitsLine);
+
+  const desireLine = document.createElement("P");
+  desireLine.innerHTML = char.pronoun.subject + " desires " + char.desires;
+  charContainer.append(desireLine);
 }
 
 //createStrFromList takes in the character and an array to generate a string
 //of that array for format "is a x, y, and z"
 function createStrFromList(char, list) {
   let newStr = "";
-  console.log(char[list]);
-  console.log(char[list].length);
   for (let i = 0; i < char[list].length; i++) {
     if (char[list].length == 1) {
       newStr = char[list][i] + ".";

@@ -5,12 +5,12 @@ class Character {
   constructor() {
     this.race = this.genRaceEvenOdds();
     this.gender = this.genGender();
+    this.pronoun = this.genPronoun();
     this.name = this.genName();
     this.traits = this.genTraits();
     this.job = this.genJob();
     this.desires = this.genDesires();
     this.ageMin = 8;
-    //just for testing, add different vals in each child class
     //this.ageMax = 110;
     //this.age = this.genAge();
   }
@@ -23,14 +23,34 @@ class Character {
     let randomInt = getRandomIntInclusive(0, 1);
     let gender;
     if (randomInt == 0) {
-      gender = "Male";
+      gender = "male";
     } else if (randomInt == 1) {
-      gender = "Female";
+      gender = "female";
     }
     return gender;
   }
+  genPronoun() {
+    //helpful guide @ https://uwm.edu/lgbtrc/support/gender-pronouns/
+    if (this.gender == "male") {
+      return {
+        subject: "he",
+        object: "him",
+        possessive: "his",
+        possessivePronoun: "his",
+        reflexive: "himself",
+      };
+    } else {
+      return {
+        subject: "she",
+        object: "her",
+        possessive: "her",
+        possessivePronoun: "hers",
+        reflexive: "herself",
+      };
+    }
+  }
   genName() {
-    if (this.gender == "Male") {
+    if (this.gender == "male") {
       let randInt = getRandomIntInclusive(
         0,
         characteristics.firstNames.Human.maleEnglish.length - 1

@@ -10,9 +10,46 @@ function appendChar() {
   while (charContainer.firstChild) {
     charContainer.firstChild.remove();
   }
-  const name = document.createElement("p");
-  name.innerHTML = char.name;
-  charContainer.append(name);
+  const nameLine = document.createElement("p");
+  nameLine.innerHTML =
+    char.name +
+    " is a " +
+    char.age +
+    " year old " +
+    char.gender +
+    " " +
+    char.race;
+  charContainer.append(nameLine);
+
+  const jobString = createStrFromList(char, "job");
+  const jobLine = document.createElement("p");
+  jobLine.innerHTML = char.pronoun.subject + " is a " + jobString;
+  charContainer.append(jobLine);
+
+  const traitsString = createStrFromList(char, "traits");
+  const traitsLine = document.createElement("p");
+  traitsLine.innerHTML = char.pronoun.subject + " is " + traitsString;
+  charContainer.append(traitsLine);
+}
+
+//createStrFromList takes in the character and an array to generate a string
+//of that array for format "is a x, y, and z"
+function createStrFromList(char, list) {
+  let newStr = "";
+  console.log(char[list]);
+  console.log(char[list].length);
+  for (let i = 0; i < char[list].length; i++) {
+    if (char[list].length == 1) {
+      newStr = char[list][i] + ".";
+      break;
+    }
+    if (i == char[list].length - 1) {
+      newStr += "and " + char[list][i] + ".";
+      break;
+    }
+    newStr += char[list][i] + ", ";
+  }
+  return newStr;
 }
 
 function selectRandChar() {

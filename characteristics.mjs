@@ -1324,6 +1324,27 @@ const characteristics = {
       "Vagabond",
     ],
   },
+  desires: [
+    "Power",
+    "Independence",
+    "Wealth",
+    "Acceptance",
+    "Order",
+    "Honor",
+    "Vengeance",
+    "Romance",
+    "Food",
+    "Peace",
+    "Celebrity",
+    "Balance",
+    "Talent",
+    "Pleasures of the Flesh",
+    "Brutality",
+    "Intellectual Challenge",
+    "Brotherhood",
+    "Creativity",
+    "Irresistibility",
+  ],
 };
 
 export default characteristics;

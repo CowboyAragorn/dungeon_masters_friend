@@ -1,11 +1,13 @@
-import {
-  Character,
-  Human,
-  Dwarf,
-  Elf,
-  HalfElf,
-  Halfling,
-} from "./characterObjects.mjs";
+// import {
+//   Character,
+//   Human,
+//   Dwarf,
+//   Elf,
+//   HalfElf,
+//   Halfling,
+// } from "./characterObjects.mjs";
+import { Character, raceClasses } from "./characterObjects.mjs";
+import appendChar from "./eventlisteners/appendChar.mjs";
 
 const newGuy = new Character();
 
@@ -15,17 +17,19 @@ console.log("they are: " + newGuy.traits);
 console.log("Profession(s):" + newGuy.job);
 console.log(newGuy.name + " desires " + newGuy.desires);
 
-console.log("Human");
-const newHuman = new Human();
-console.log(newHuman);
+const randCharBtn = document.getElementById("randCharBtn");
+randCharBtn.addEventListener("click", appendChar);
 
-console.log("Elf");
-const newElf = new Elf();
-console.log(newElf);
-console.log(newElf.age);
-/*
-//console.log(genRaceEvenOdds());
-console.log(genRaceEvenOdds() + " " + genGender());
-console.log(genTraits());
-console.log(genJob());
-*/
+const newHuman = new raceClasses.Dwarf();
+console.log(newHuman);
+console.log(newHuman.age);
+console.log(Object.keys(raceClasses));
+
+// console.log("Human");
+// const newHuman = new Human();
+// console.log(newHuman);
+
+// console.log("Elf");
+// const newElf = new Elf();
+// console.log(newElf);
+// console.log(newElf.age);

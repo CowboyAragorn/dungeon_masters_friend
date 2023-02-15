@@ -11,8 +11,8 @@ class Character {
     this.desires = this.genDesires();
     this.ageMin = 8;
     //just for testing, add different vals in each child class
-    this.ageMax = 110;
-    this.age = this.genAge();
+    //this.ageMax = 110;
+    //this.age = this.genAge();
   }
   //useful for a cosmopolitan area
   genRaceEvenOdds() {
@@ -117,44 +117,51 @@ class Character {
   }
 }
 
-//use polymorphism to change characteristics about the individual races
-class Human extends Character {
-  constructor() {
-    super();
-    this.race = "Human";
-  }
-}
-class Dwarf extends Character {
-  constructor() {
-    super();
-    this.race = "Dwarf";
-    this.ageMax = 750;
-    this.age = this.genAge();
-  }
-}
-class Elf extends Character {
-  constructor() {
-    super();
-    this.race = "Elf";
-    this.ageMax = 750;
-    this.age = this.genAge();
-  }
-}
-class HalfElf extends Character {
-  constructor() {
-    super();
-    this.race = "Half-Elf";
-    this.ageMax = 750;
-    this.age = this.genAge();
-  }
-}
-class Halfling extends Character {
-  constructor() {
-    super();
-    this.race = "Halfling";
-    this.ageMax = 130;
-    this.age = this.genAge();
-  }
-}
+//put all the subclasses into an object so that we can iterate over keys
+//in other functions
+const raceClasses = {
+  //use polymorphism to change characteristics about the individual races
+  Human: class Human extends Character {
+    constructor() {
+      super();
+      this.race = "Human";
+      this.ageMax = 118;
+      this.age = this.genAge();
+    }
+  },
+  Dwarf: class Dwarf extends Character {
+    constructor() {
+      super();
+      this.race = "Dwarf";
+      this.ageMax = 250;
+      this.age = this.genAge();
+    }
+  },
+  Elf: class Elf extends Character {
+    constructor() {
+      super();
+      this.race = "Elf";
+      this.ageMax = 750;
+      this.age = this.genAge();
+    }
+  },
+  HalfElf: class HalfElf extends Character {
+    constructor() {
+      super();
+      this.race = "Half-Elf";
+      this.ageMax = 180;
+      this.age = this.genAge();
+    }
+  },
+  Halfling: class Halfling extends Character {
+    constructor() {
+      super();
+      this.race = "Halfling";
+      this.ageMax = 130;
+      this.age = this.genAge();
+    }
+  },
+};
 
-export { Character, Human, Dwarf, Elf, HalfElf, Halfling };
+//export { Character, Human, Dwarf, Elf, HalfElf, Halfling };
+export { Character, raceClasses };

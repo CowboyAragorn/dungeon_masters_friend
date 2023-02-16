@@ -9,7 +9,7 @@
 import { Character, raceClasses } from "./characterObjects.mjs";
 import appendChar from "./eventlisteners/appendChar.mjs";
 
-const newGuy = new Character();
+//const newGuy = new Character();
 
 // console.log(newGuy.name);
 // console.log(newGuy.age + " year old " + newGuy.race + " " + newGuy.gender);

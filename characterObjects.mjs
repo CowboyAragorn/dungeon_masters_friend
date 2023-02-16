@@ -3,14 +3,17 @@ import characteristics from "./characteristics.mjs";
 
 class Character {
   constructor() {
-    this.race = this.genRaceEvenOdds();
     this.gender = this.genGender();
     this.pronoun = this.genPronoun();
-    this.name = this.genName();
     this.traits = this.genTraits();
     this.job = this.genJob();
     this.desires = this.genDesires();
     this.ageMin = 8;
+
+    //found it better to have all of these just in the subclass
+    //this.race = this.genRaceEvenOdds();
+    //this.firstName = this.genFirstName();
+    //this.lastName = this.genLastName();
     //this.ageMax = 110;
     //this.age = this.genAge();
   }
@@ -49,20 +52,26 @@ class Character {
       };
     }
   }
-  genName() {
-    if (this.gender == "male") {
-      let randInt = getRandomIntInclusive(
-        0,
-        characteristics.firstNames.Human.maleEnglish.length - 1
-      );
-      return characteristics.firstNames.Human.maleEnglish[randInt];
-    } else {
-      let randInt = getRandomIntInclusive(
-        0,
-        characteristics.firstNames.Human.femaleEnglish.length - 1
-      );
-      return characteristics.firstNames.Human.femaleEnglish[randInt];
-    }
+  //will now dynamically pull based on race and gender
+  //This does make names generically "race locked"
+  //IE you won't have a dwarf generating with an Elf name, which idk maybe some people want
+  genFirstName() {
+    console.log("firstname gen");
+    console.log(this.race);
+    console.log(characteristics.firstNames[this.race][this.gender]);
+    let randInt = getRandomIntInclusive(
+      0,
+      characteristics.firstNames[this.race][this.gender].length - 1
+    );
+
+    return characteristics.firstNames[this.race][this.gender][randInt];
+  }
+  genLastName() {
+    const randInt = getRandomIntInclusive(
+      0,
+      characteristics.lastNames.commonEng.length - 1
+    );
+    return characteristics.lastNames.commonEng[randInt];
   }
   //TODO: flesh this out to make younger ages more common
   genAge() {
@@ -147,6 +156,8 @@ const raceClasses = {
       this.race = "Human";
       this.ageMax = 118;
       this.age = this.genAge();
+      this.firstName = this.genFirstName();
+      this.lastName = this.genLastName();
     }
   },
   Dwarf: class Dwarf extends Character {
@@ -155,6 +166,8 @@ const raceClasses = {
       this.race = "Dwarf";
       this.ageMax = 250;
       this.age = this.genAge();
+      this.firstName = this.genFirstName();
+      this.lastName = this.genLastName();
     }
   },
   Elf: class Elf extends Character {

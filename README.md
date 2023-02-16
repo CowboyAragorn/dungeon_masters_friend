@@ -4,7 +4,10 @@ currently working on:
 
 random character/npc creation
 
-WIP (maybe):
-Village generator
-Character sheet builder
-Encounter generator
+Future additions (maybe):
+
+Village generator,
+
+Character sheet builder,
+
+Encounter generator,

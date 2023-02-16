@@ -12,7 +12,9 @@ function appendChar() {
   }
   const nameLine = document.createElement("p");
   nameLine.innerHTML =
-    char.name +
+    char.firstName +
+    " " +
+    char.lastName +
     " is a " +
     char.age +
     " year old " +

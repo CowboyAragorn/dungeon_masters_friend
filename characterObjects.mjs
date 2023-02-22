@@ -56,9 +56,6 @@ class Character {
   //This does make names generically "race locked"
   //IE you won't have a dwarf generating with an Elf name, which idk maybe some people want
   genFirstName() {
-    console.log("firstname gen");
-    console.log(this.race);
-    console.log(characteristics.firstNames[this.race][this.gender]);
     let randInt = getRandomIntInclusive(
       0,
       characteristics.firstNames[this.race][this.gender].length - 1
@@ -67,11 +64,27 @@ class Character {
     return characteristics.firstNames[this.race][this.gender][randInt];
   }
   genLastName() {
-    const randInt = getRandomIntInclusive(
-      0,
-      characteristics.lastNames.commonEng.length - 1
-    );
-    return characteristics.lastNames.commonEng[randInt];
+    ///Definitely a more elegant way to do this dwarf bit
+    //just not sure if I am going to keep this scand style
+    //will switch to the actual characteristics object if I decide to keep
+    if (this.race == "Dwarf") {
+      const randInt = getRandomIntInclusive(
+        0,
+        characteristics.firstNames[this.race][this.gender].length - 1
+      );
+      1;
+      if (this.gender == "male") {
+        return characteristics.firstNames.Dwarf.male[randInt] + "son";
+      } else {
+        return characteristics.firstNames.Dwarf.female[randInt] + "dotter";
+      }
+    } else {
+      const randInt = getRandomIntInclusive(
+        0,
+        characteristics.lastNames[this.race].length - 1
+      );
+      return characteristics.lastNames[this.race][randInt];
+    }
   }
   //TODO: flesh this out to make younger ages more common
   genAge() {
@@ -176,14 +189,52 @@ const raceClasses = {
       this.race = "Elf";
       this.ageMax = 750;
       this.age = this.genAge();
+      this.firstName = this.genFirstName();
+      //tolkien elves don't have last names,
+      //may still stick a generator in for elassee
+      this.lastName = "";
+      //this.lastName = this.genLastName();
     }
   },
   HalfElf: class HalfElf extends Character {
     constructor() {
       super();
       this.race = "Half-Elf";
+      this.custom = this.genCustom();
       this.ageMax = 180;
       this.age = this.genAge();
+      this.firstName = this.genFirstName();
+      this.lastName = this.genLastName();
+    }
+    //polymorphism change for halfelf
+    genCustom() {
+      //flip a coin, 50/50 chance of getting elven vs human name
+      const randInt = getRandomIntInclusive(0, 1);
+      if (randInt == 0) {
+        return "Elf";
+      } else {
+        return "Human";
+      }
+    }
+    //polymorphism change for halfelf, swapping custom for race
+    genFirstName() {
+      let randInt = getRandomIntInclusive(
+        0,
+        characteristics.firstNames[this.custom][this.gender].length - 1
+      );
+
+      return characteristics.firstNames[this.custom][this.gender][randInt];
+    }
+    genLastName() {
+      if (this.custom == "Elf") {
+        return "";
+      } else {
+        let randInt = getRandomIntInclusive(
+          0,
+          characteristics.lastNames[this.custom].length - 1
+        );
+        return characteristics.lastNames[this.custom][randInt];
+      }
     }
   },
   Halfling: class Halfling extends Character {
@@ -192,6 +243,25 @@ const raceClasses = {
       this.race = "Halfling";
       this.ageMax = 130;
       this.age = this.genAge();
+      this.firstName = this.genFirstName();
+      this.lastName = this.genLastName();
+    }
+    genLastName() {
+      const randAdjInt = getRandomIntInclusive(
+        0,
+        characteristics.lastNames.HalflingAdj.length - 1
+      );
+      const randNounInt = getRandomIntInclusive(
+        0,
+        characteristics.lastNames.HalflingNoun.length - 1
+      );
+      const namefirstHalf = characteristics.lastNames.HalflingAdj[randAdjInt];
+      const nameSecondHalf =
+        characteristics.lastNames.HalflingNoun[randNounInt];
+      let fullName = namefirstHalf + nameSecondHalf;
+      fullName = fullName.toLowerCase();
+      fullName = fullName.charAt(0).toUpperCase() + fullName.slice(1);
+      return fullName;
     }
   },
 };

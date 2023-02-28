@@ -6,6 +6,8 @@ random character/npc creation
 
 Future additions (maybe):
 
+Different fonts for each generated character race,
+
 Village generator,
 
 Character sheet builder,

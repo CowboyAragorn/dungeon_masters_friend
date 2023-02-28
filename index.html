@@ -10,23 +10,37 @@
   <body>
     <h1>Dungeon Master's Friend</h1>
     <button id="randCharBtn">Generator Random Character</button>
-    <div class="container">
+    <div id="nameBox">
+      <h2>Name</h2>
       <p id="name"></p>
     </div>
-    <div class="container" id="physicalProfileContainer">
-      <p id="race"></p>
-      <p id="gender"></p>
-      <p id="age"></p>
+    <div id="physicalProfileContainer">
+      <div class="physicalProfileBox">
+        <h2>Race</h2>
+        <p id="race"></p>
+      </div>
+      <div class="physicalProfileBox">
+        <h2>Gender</h2>
+        <p id="gender"></p>
+      </div>
+      <div class="physicalProfileBox">
+        <h2>Age</h2>
+        <p id="age"></p>
+      </div>
     </div>
-    <div class="container">
-      <h2>Occupations</h2>
-      <div class="container" id="occupationsContainer"></div>
+
+    <div class="occupationsMainContainer">
+      <div class="borderlessContainer middlePart column">
+        <h2>Occupations</h2>
+        <div id="occupationsContainer"></div>
+      </div>
+      <div class="borderlessContainer column">
+        <h2>Traits</h2>
+        <div id="traitsContainer"></div>
+      </div>
     </div>
-    <div class="container">
-      <h2>Traits</h2>
-      <div class="container" id="traitsContainer"></div>
-    </div>
-    <div class="container">
+
+    <div id="desiresBox" class="column">
       <h2>Desires</h2>
       <p id="desires"></p>
     </div>

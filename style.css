@@ -1,0 +1,47 @@
+#physicalProfileContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1pt solid black;
+  border-right: none;
+  border-top: none;
+}
+
+.physicalProfileBox,
+#nameBox,
+#desiresBox {
+  border-right: 1pt solid black;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#nameBox {
+  border: 1pt solid black;
+}
+#desiresBox {
+  border: 1pt solid black;
+  border-top: none;
+}
+.occupationsMainContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1pt solid black;
+  border-top: none;
+}
+
+.borderlessContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.middlePart {
+  border-right: 1pt solid black;
+}
+.column {
+  flex-direction: column;
+}

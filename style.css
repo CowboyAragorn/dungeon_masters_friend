@@ -163,7 +163,7 @@ label {
 #tableContainer {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 300px;
+  max-width: 400px;
   gap: 10px;
   margin: 5px;
 }
@@ -175,6 +175,12 @@ label {
 
 #tableContainer > :nth-child(n-1) {
   border-bottom: 1pt solid black;
+}
+
+#tableContainer > * {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  padding: 5pt;
 }
 
 .descriptionHeader {

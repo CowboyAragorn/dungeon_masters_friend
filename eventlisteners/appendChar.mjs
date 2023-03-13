@@ -9,17 +9,12 @@ function appendChar() {
     return raceClasses[randRace];
   }
 
-  function clearContainer(container) {
-    while (container.firstChild) {
-      container.firstChild.remove();
-    }
-  }
-
   function appendListToContainer(id, items) {
     const container = document.getElementById(id);
     for (let i = 0; i < items.length; i++) {
       let itemToAppend = document.createElement("p");
       itemToAppend.innerHTML = items[i];
+      itemToAppend.classList.add("generatedP");
       container.append(itemToAppend);
     }
   }
@@ -43,6 +38,7 @@ function appendChar() {
         {
           elementType: "p",
           id: "name",
+          class: "generatedP",
           parent: "nameBox",
           innerHTML: char.firstName + " " + char.lastName,
         },
@@ -67,6 +63,7 @@ function appendChar() {
         {
           elementType: "p",
           id: "race",
+          class: "generatedP",
           parent: "raceBox",
           innerHTML: char.race,
         },
@@ -84,8 +81,9 @@ function appendChar() {
         {
           elementType: "p",
           id: "gender",
+          class: "generatedP",
           parent: "genderBox",
-          innerHTML: char.gender,
+          innerHTML: char.gender.charAt(0).toUpperCase() + char.gender.slice(1),
         },
         {
           elementType: "div",
@@ -101,6 +99,7 @@ function appendChar() {
         {
           elementType: "p",
           id: "age",
+          class: "generatedP",
           parent: "ageBox",
           innerHTML: char.age,
         },
@@ -161,6 +160,7 @@ function appendChar() {
         {
           elementType: "p",
           id: "desires",
+          class: "generatedP",
           parent: "desiresBox",
           innerHTML: char.desires,
         },
@@ -204,36 +204,10 @@ function appendChar() {
       }
     }
   }
-  function appendToPage(char) {
-    appendCategories(char);
-
-    // const nameElement = document.getElementById("name");
-    // nameElement.innerHTML = char.firstName + " " + char.lastName;
-
-    // const raceElement = document.getElementById("race");
-    // raceElement.innerHTML = char.race;
-    // const genderElement = document.getElementById("gender");
-    // genderElement.innerHTML = char.gender;
-    // const ageElement = document.getElementById("age");
-    // ageElement.innerHTML = char.age + " years old";
-
-    // const occupationsContainer = document.getElementById(
-    //   "occupationsContainer"
-    // );
-    // clearContainer(occupationsContainer);
-    // appendListToContainer(occupationsContainer, char.job);
-
-    // const traitsContainer = document.getElementById("traitsContainer");
-    // clearContainer(traitsContainer);
-    // appendListToContainer(traitsContainer, char.traits);
-
-    // const desiresElement = document.getElementById("desires");
-    // desiresElement.innerHTML = char.desires;
-  }
 
   const randRace = selectRandChar();
   const char = new randRace();
-  appendToPage(char);
+  appendCategories(char);
   console.log(char);
 }
 

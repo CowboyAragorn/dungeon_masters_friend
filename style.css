@@ -177,10 +177,6 @@ label {
   border-bottom: 1pt solid black;
 }
 
-#tableContainer > :nth-child(n-1) {
-  border-bottom: 1pt solid black;
-}
-
 .descriptionHeader {
   font-weight: bold;
   font-size: 1.1rem;

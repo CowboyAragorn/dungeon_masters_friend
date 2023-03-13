@@ -149,8 +149,8 @@ class Character {
     return jobs;
   }
   genDesires() {
-    let num = getRandomIntInclusive(0, characteristics.desires.length - 1);
-    return characteristics.desires[num];
+    let num = getRandomIntInclusive(0, characteristics.desires.all.length - 1);
+    return characteristics.desires.all[num];
   }
 }
 

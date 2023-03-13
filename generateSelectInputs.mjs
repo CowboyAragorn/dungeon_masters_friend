@@ -19,8 +19,30 @@ export default function generateSelectInputs() {
       selectionItems: characteristics.gender,
       labelText: "Gender",
     },
-    // ageSelect,
-    // occupationsSelect,
+    {
+      name: "selectAge",
+      selectionItems: [
+        "Child",
+        "Young Adult",
+        "Middle Aged",
+        "Senior",
+        "Wizened",
+      ],
+      labelText: "Age",
+    },
+    {
+      name: "selectOccupation",
+      selectionItems: Object.keys(characteristics.job),
+      labelText: "Occupation",
+      random: "y",
+    },
+    {
+      name: "selectTraits",
+      //slice 1 here just removes the "all category", redundant with random
+      selectionItems: Object.keys(characteristics.characterTraits).slice(1),
+      labelText: "Traits",
+    },
+
     // traitsSelect,
     // desiresSelect,
   ];
@@ -38,7 +60,13 @@ export default function generateSelectInputs() {
     for (let j = 0; j < selectInputs[i].selectionItems.length; j++) {
       const option = document.createElement("option");
       option.value = selectInputs[i].selectionItems[j];
-      option.innerHTML = selectInputs[i].selectionItems[j];
+      //capitalize the first letter and remove underscores, helps as some of the keys in
+      //characteristics are not formatted in a nice, displayable format
+      let optionInnerHtml =
+        selectInputs[i].selectionItems[j].charAt(0).toUpperCase() +
+        selectInputs[i].selectionItems[j].slice(1);
+      optionInnerHtml = optionInnerHtml.replace("_", " ");
+      option.innerHTML = optionInnerHtml;
       selectInput.append(option);
     }
     selectInputsContainer.append(label);

@@ -1,6 +1,6 @@
 //Special thanks to u/The_Camwin & others on reddit for compiling professions
 const characteristics = {
-  race: ["Human", "Dwarf", "Elf", "Half-elf", "Halfling"],
+  race: ["Human", "Dwarf", "Elf", "Half-Elf", "Halfling"],
   gender: ["Male", "Female"],
   //TODO: Reorganize these traits, disagree with some of the placements
   firstNames: {

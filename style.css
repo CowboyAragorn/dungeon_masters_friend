@@ -166,6 +166,7 @@ label {
   max-width: 400px;
   gap: 10px;
   margin: 5px;
+  background-color: white;
 }
 
 .tableContainerBorders {

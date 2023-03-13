@@ -3,10 +3,16 @@ import getRandomIntInclusive from "../utils/getRandomIntInclusive.mjs";
 
 function appendChar() {
   function selectRandChar() {
-    const arrOfRaces = Object.keys(raceClasses);
-    const randNum = getRandomIntInclusive(0, arrOfRaces.length - 1);
-    const randRace = arrOfRaces[randNum];
-    return raceClasses[randRace];
+    const selectRace = document.getElementById("selectRace");
+
+    if (selectRace.value == "Random") {
+      const arrOfRaces = Object.keys(raceClasses);
+      const randNum = getRandomIntInclusive(0, arrOfRaces.length - 1);
+      const randRace = arrOfRaces[randNum];
+      return raceClasses[randRace];
+    } else {
+      return raceClasses[selectRace.value];
+    }
   }
 
   function appendListToContainer(id, items) {
@@ -23,149 +29,7 @@ function appendChar() {
     //array of array of appendable objects, saves having to type the create element for everything
     //array of array is purely for convenience of seeing each nexted row in html easier
     //speed should run the same as it is still touching everything n times
-    // const categoriesToAppend = [
-    //   [
-    //     {
-    //       elementType: "div",
-    //       id: "nameBox",
-    //       parent: "tableContainer",
-    //     },
-    //     {
-    //       elementType: "h2",
-    //       parent: "nameBox",
-    //       innerHTML: "Name",
-    //     },
-    //     {
-    //       elementType: "p",
-    //       id: "name",
-    //       class: "generatedP",
-    //       parent: "nameBox",
-    //       innerHTML: char.firstName + " " + char.lastName,
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       elementType: "div",
-    //       id: "physicalProfileContainer",
-    //       parent: "tableContainer",
-    //     },
-    //     {
-    //       elementType: "div",
-    //       class: "physicalProfileBox",
-    //       id: "raceBox",
-    //       parent: "physicalProfileContainer",
-    //     },
-    //     {
-    //       elementType: "h2",
-    //       parent: "raceBox",
-    //       innerHTML: "Race",
-    //     },
-    //     {
-    //       elementType: "p",
-    //       id: "race",
-    //       class: "generatedP",
-    //       parent: "raceBox",
-    //       innerHTML: char.race,
-    //     },
-    //     {
-    //       elementType: "div",
-    //       class: "physicalProfileBox",
-    //       id: "genderBox",
-    //       parent: "physicalProfileContainer",
-    //     },
-    //     {
-    //       elementType: "h2",
-    //       parent: "genderBox",
-    //       innerHTML: "Gender",
-    //     },
-    //     {
-    //       elementType: "p",
-    //       id: "gender",
-    //       class: "generatedP",
-    //       parent: "genderBox",
-    //       innerHTML: char.gender.charAt(0).toUpperCase() + char.gender.slice(1),
-    //     },
-    //     {
-    //       elementType: "div",
-    //       class: "physicalProfileBox",
-    //       id: "ageBox",
-    //       parent: "physicalProfileContainer",
-    //     },
-    //     {
-    //       elementType: "h2",
-    //       parent: "ageBox",
-    //       innerHTML: "Age",
-    //     },
-    //     {
-    //       elementType: "p",
-    //       id: "age",
-    //       class: "generatedP",
-    //       parent: "ageBox",
-    //       innerHTML: char.age,
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       elementType: "div",
-    //       id: "occupationsMainContainer",
-    //       parent: "tableContainer",
-    //     },
-    //     {
-    //       elementType: "div",
-    //       class: ["borderlessContainer", "middlePart", "column"],
-    //       id: "occupationsBox",
-    //       parent: "occupationsMainContainer",
-    //     },
-    //     {
-    //       elementType: "h2",
-    //       innerHTML: "Occupations",
-    //       parent: "occupationsBox",
-    //     },
-    //     {
-    //       elementType: "div",
-    //       id: "occupationsContainer",
-    //       parent: "occupationsBox",
-    //       appendListToContainerParameters: ["occupationsContainer", char.job],
-    //     },
-    //     {
-    //       elementType: "div",
-    //       class: ["borderlessContainer", "column"],
-    //       id: "traitsBox",
-    //       parent: "occupationsMainContainer",
-    //     },
-    //     {
-    //       elementType: "h2",
-    //       innerHTML: "Traits",
-    //       parent: "traitsBox",
-    //     },
-    //     {
-    //       elementType: "div",
-    //       id: "traitsContainer",
-    //       parent: "traitsBox",
-    //       appendListToContainerParameters: ["traitsContainer", char.traits],
-    //     },
-    //   ],
-    //   [
-    //     {
-    //       elementType: "div",
-    //       id: "desiresBox",
-    //       class: "column",
-    //       parent: "tableContainer",
-    //     },
-    //     {
-    //       elementType: "h2",
-    //       parent: "desiresBox",
-    //       innerHTML: "Desires",
-    //     },
-    //     {
-    //       elementType: "p",
-    //       id: "desires",
-    //       class: "generatedP",
-    //       parent: "desiresBox",
-    //       innerHTML: char.desires,
-    //     },
-    //   ],
-    // ];
+
     const categoriesToAppend = [
       [
         {
@@ -345,6 +209,8 @@ function appendChar() {
       }
     }
   }
+
+  //race is currently being determined here, not sure if that is the best, rolling for now 3-13
 
   const randRace = selectRandChar();
   const char = new randRace();

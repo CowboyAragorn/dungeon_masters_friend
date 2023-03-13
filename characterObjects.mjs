@@ -9,19 +9,8 @@ class Character {
     this.job = this.genJob();
     this.desires = this.genDesires();
     this.ageMin = 8;
+  }
 
-    //found it better to have all of these just in the subclass
-    //this.race = this.genRaceEvenOdds();
-    //this.firstName = this.genFirstName();
-    //this.lastName = this.genLastName();
-    //this.ageMax = 110;
-    //this.age = this.genAge();
-  }
-  //useful for a cosmopolitan area
-  genRaceEvenOdds() {
-    let randInt = getRandomIntInclusive(0, characteristics.race.length - 1);
-    return characteristics.race[randInt];
-  }
   genGender() {
     let randomInt = getRandomIntInclusive(0, characteristics.gender.length - 1);
 
@@ -195,6 +184,7 @@ const raceClasses = {
     constructor() {
       super();
       this.race = "Half-Elf";
+      //custom as in cultural habit
       this.custom = this.genCustom();
       this.ageMax = 180;
       this.age = this.genAge();

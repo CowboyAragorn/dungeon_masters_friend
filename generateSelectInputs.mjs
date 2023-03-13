@@ -11,16 +11,19 @@ export default function generateSelectInputs() {
   const selectInputs = [
     {
       name: "selectRace",
+      id: "selectRace",
       selectionItems: characteristics.race,
       labelText: "Race",
     },
     {
       name: "selectGender",
+      id: "selectGender",
       selectionItems: characteristics.gender,
       labelText: "Gender",
     },
     {
       name: "selectAge",
+      id: "selectAge",
       selectionItems: [
         "Child",
         "Young Adult",
@@ -32,18 +35,18 @@ export default function generateSelectInputs() {
     },
     {
       name: "selectOccupation",
+      id: "selectOccupation",
       selectionItems: Object.keys(characteristics.job),
       labelText: "Occupation",
-      random: "y",
     },
     {
       name: "selectTraits",
+      id: "selectTraits",
       //slice 1 here just removes the "all category", redundant with random
       selectionItems: Object.keys(characteristics.characterTraits).slice(1),
       labelText: "Traits",
     },
 
-    // traitsSelect,
     // desiresSelect,
   ];
 
@@ -53,13 +56,15 @@ export default function generateSelectInputs() {
     label.innerHTML = selectInputs[i].labelText;
     const selectInput = document.createElement("select");
     selectInput.name = selectInputs[i].name;
+    selectInput.id = selectInputs[i].id;
     const defaultOption = document.createElement("option");
     defaultOption.value = "Random";
     defaultOption.innerHTML = "Random";
     selectInput.append(defaultOption);
     for (let j = 0; j < selectInputs[i].selectionItems.length; j++) {
       const option = document.createElement("option");
-      option.value = selectInputs[i].selectionItems[j];
+      //this replace is to get around the - in half-elf and others not playing nice iwth classnames
+      option.value = selectInputs[i].selectionItems[j].replace("-", "");
       //capitalize the first letter and remove underscores, helps as some of the keys in
       //characteristics are not formatted in a nice, displayable format
       let optionInnerHtml =

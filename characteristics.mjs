@@ -1,11 +1,12 @@
 //Special thanks to u/The_Camwin & others on reddit for compiling professions
 const characteristics = {
   race: ["Human", "Dwarf", "Elf", "Half-elf", "Halfling"],
+  gender: ["Male", "Female"],
   //TODO: Reorganize these traits, disagree with some of the placements
   firstNames: {
     Human: {
       //english based
-      male: [
+      Male: [
         "William",
         "John",
         "Thomas",
@@ -207,7 +208,7 @@ const characteristics = {
         "Nelson",
         "Nehemiah",
       ],
-      female: [
+      Female: [
         "Mary",
         "Elizabeth",
         "Sarah",
@@ -414,7 +415,7 @@ const characteristics = {
     },
     Dwarf: {
       //scand based
-      male: [
+      Male: [
         "Amund",
         "Arvid",
         "Bjorn",
@@ -489,7 +490,7 @@ const characteristics = {
         "Wray",
         "Zvi",
       ],
-      female: [
+      Female: [
         "Alleta",
         "Bo",
         "Dagna",
@@ -556,7 +557,7 @@ const characteristics = {
       ],
     },
     Elf: {
-      male: [
+      Male: [
         "Aeniar",
         "Agarwenamath",
         "Aglargiw",
@@ -657,7 +658,7 @@ const characteristics = {
         "Uirchon",
         "Ŷr",
       ],
-      female: [
+      Female: [
         "Aenel",
         "Aenil",
         "Agaraen",
@@ -756,7 +757,7 @@ const characteristics = {
       ],
     },
     Halfling: {
-      male: [
+      Male: [
         "Ackley",
         "Acton",
         "Adney",
@@ -846,7 +847,7 @@ const characteristics = {
         "Woodrow",
         "Wystan",
       ],
-      female: [
+      Female: [
         "Aldreda",
         "Alison",
         "Alodie",

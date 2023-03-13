@@ -23,18 +23,13 @@ class Character {
     return characteristics.race[randInt];
   }
   genGender() {
-    let randomInt = getRandomIntInclusive(0, 1);
-    let gender;
-    if (randomInt == 0) {
-      gender = "male";
-    } else if (randomInt == 1) {
-      gender = "female";
-    }
-    return gender;
+    let randomInt = getRandomIntInclusive(0, characteristics.gender.length - 1);
+
+    return characteristics.gender[randomInt];
   }
   genPronoun() {
     //helpful guide @ https://uwm.edu/lgbtrc/support/gender-pronouns/
-    if (this.gender == "male") {
+    if (this.gender == "Male") {
       return {
         subject: "he",
         object: "him",
@@ -73,10 +68,10 @@ class Character {
         characteristics.firstNames[this.race][this.gender].length - 1
       );
       1;
-      if (this.gender == "male") {
-        return characteristics.firstNames.Dwarf.male[randInt] + "son";
+      if (this.gender == "Male") {
+        return characteristics.firstNames.Dwarf.Male[randInt] + "son";
       } else {
-        return characteristics.firstNames.Dwarf.female[randInt] + "dotter";
+        return characteristics.firstNames.Dwarf.Female[randInt] + "dotter";
       }
     } else {
       const randInt = getRandomIntInclusive(

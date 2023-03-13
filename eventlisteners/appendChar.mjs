@@ -224,7 +224,7 @@ function appendChar() {
           id: "gender",
           class: "generatedP",
           parent: "genderBox",
-          innerHTML: char.gender.charAt(0).toUpperCase() + char.gender.slice(1),
+          innerHTML: char.gender,
         },
         {
           elementType: "div",

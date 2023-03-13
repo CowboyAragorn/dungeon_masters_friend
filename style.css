@@ -154,6 +154,12 @@ table {
   cursor: pointer;
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+  max-width: 100px;
+}
+
 #tableContainer {
   display: grid;
   grid-template-columns: 1fr;
@@ -177,6 +183,7 @@ table {
 
 .descriptionHeader {
   font-weight: bold;
+  font-size: 1.1rem;
 }
 .generatedP {
   font-size: 1.2rem;

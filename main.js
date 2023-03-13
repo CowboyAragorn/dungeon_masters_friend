@@ -8,6 +8,7 @@
 // } from "./characterObjects.mjs";
 import { Character, raceClasses } from "./characterObjects.mjs";
 import appendChar from "./eventlisteners/appendChar.mjs";
+import generateSelectInputs from "./generateSelectInputs.mjs";
 
 // const newGuy = new raceClasses.Halfling();
 // console.log(newGuy);
@@ -17,5 +18,6 @@ import appendChar from "./eventlisteners/appendChar.mjs";
 // console.log("Profession(s):" + newGuy.job);
 // console.log(newGuy.name + " desires " + newGuy.desires);
 
+generateSelectInputs();
 const randCharBtn = document.getElementById("randCharBtn");
 randCharBtn.addEventListener("click", appendChar);

@@ -23,6 +23,149 @@ function appendChar() {
     //array of array of appendable objects, saves having to type the create element for everything
     //array of array is purely for convenience of seeing each nexted row in html easier
     //speed should run the same as it is still touching everything n times
+    // const categoriesToAppend = [
+    //   [
+    //     {
+    //       elementType: "div",
+    //       id: "nameBox",
+    //       parent: "tableContainer",
+    //     },
+    //     {
+    //       elementType: "h2",
+    //       parent: "nameBox",
+    //       innerHTML: "Name",
+    //     },
+    //     {
+    //       elementType: "p",
+    //       id: "name",
+    //       class: "generatedP",
+    //       parent: "nameBox",
+    //       innerHTML: char.firstName + " " + char.lastName,
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       elementType: "div",
+    //       id: "physicalProfileContainer",
+    //       parent: "tableContainer",
+    //     },
+    //     {
+    //       elementType: "div",
+    //       class: "physicalProfileBox",
+    //       id: "raceBox",
+    //       parent: "physicalProfileContainer",
+    //     },
+    //     {
+    //       elementType: "h2",
+    //       parent: "raceBox",
+    //       innerHTML: "Race",
+    //     },
+    //     {
+    //       elementType: "p",
+    //       id: "race",
+    //       class: "generatedP",
+    //       parent: "raceBox",
+    //       innerHTML: char.race,
+    //     },
+    //     {
+    //       elementType: "div",
+    //       class: "physicalProfileBox",
+    //       id: "genderBox",
+    //       parent: "physicalProfileContainer",
+    //     },
+    //     {
+    //       elementType: "h2",
+    //       parent: "genderBox",
+    //       innerHTML: "Gender",
+    //     },
+    //     {
+    //       elementType: "p",
+    //       id: "gender",
+    //       class: "generatedP",
+    //       parent: "genderBox",
+    //       innerHTML: char.gender.charAt(0).toUpperCase() + char.gender.slice(1),
+    //     },
+    //     {
+    //       elementType: "div",
+    //       class: "physicalProfileBox",
+    //       id: "ageBox",
+    //       parent: "physicalProfileContainer",
+    //     },
+    //     {
+    //       elementType: "h2",
+    //       parent: "ageBox",
+    //       innerHTML: "Age",
+    //     },
+    //     {
+    //       elementType: "p",
+    //       id: "age",
+    //       class: "generatedP",
+    //       parent: "ageBox",
+    //       innerHTML: char.age,
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       elementType: "div",
+    //       id: "occupationsMainContainer",
+    //       parent: "tableContainer",
+    //     },
+    //     {
+    //       elementType: "div",
+    //       class: ["borderlessContainer", "middlePart", "column"],
+    //       id: "occupationsBox",
+    //       parent: "occupationsMainContainer",
+    //     },
+    //     {
+    //       elementType: "h2",
+    //       innerHTML: "Occupations",
+    //       parent: "occupationsBox",
+    //     },
+    //     {
+    //       elementType: "div",
+    //       id: "occupationsContainer",
+    //       parent: "occupationsBox",
+    //       appendListToContainerParameters: ["occupationsContainer", char.job],
+    //     },
+    //     {
+    //       elementType: "div",
+    //       class: ["borderlessContainer", "column"],
+    //       id: "traitsBox",
+    //       parent: "occupationsMainContainer",
+    //     },
+    //     {
+    //       elementType: "h2",
+    //       innerHTML: "Traits",
+    //       parent: "traitsBox",
+    //     },
+    //     {
+    //       elementType: "div",
+    //       id: "traitsContainer",
+    //       parent: "traitsBox",
+    //       appendListToContainerParameters: ["traitsContainer", char.traits],
+    //     },
+    //   ],
+    //   [
+    //     {
+    //       elementType: "div",
+    //       id: "desiresBox",
+    //       class: "column",
+    //       parent: "tableContainer",
+    //     },
+    //     {
+    //       elementType: "h2",
+    //       parent: "desiresBox",
+    //       innerHTML: "Desires",
+    //     },
+    //     {
+    //       elementType: "p",
+    //       id: "desires",
+    //       class: "generatedP",
+    //       parent: "desiresBox",
+    //       innerHTML: char.desires,
+    //     },
+    //   ],
+    // ];
     const categoriesToAppend = [
       [
         {
@@ -33,6 +176,7 @@ function appendChar() {
         {
           elementType: "h2",
           parent: "nameBox",
+          class: "descriptionHeader",
           innerHTML: "Name",
         },
         {
@@ -46,18 +190,14 @@ function appendChar() {
       [
         {
           elementType: "div",
-          id: "physicalProfileContainer",
-          parent: "tableContainer",
-        },
-        {
-          elementType: "div",
           class: "physicalProfileBox",
           id: "raceBox",
-          parent: "physicalProfileContainer",
+          parent: "tableContainer",
         },
         {
           elementType: "h2",
           parent: "raceBox",
+          class: "descriptionHeader",
           innerHTML: "Race",
         },
         {
@@ -71,11 +211,12 @@ function appendChar() {
           elementType: "div",
           class: "physicalProfileBox",
           id: "genderBox",
-          parent: "physicalProfileContainer",
+          parent: "tableContainer",
         },
         {
           elementType: "h2",
           parent: "genderBox",
+          class: "descriptionHeader",
           innerHTML: "Gender",
         },
         {
@@ -89,11 +230,12 @@ function appendChar() {
           elementType: "div",
           class: "physicalProfileBox",
           id: "ageBox",
-          parent: "physicalProfileContainer",
+          parent: "tableContainer",
         },
         {
           elementType: "h2",
           parent: "ageBox",
+          class: "descriptionHeader",
           innerHTML: "Age",
         },
         {
@@ -107,18 +249,14 @@ function appendChar() {
       [
         {
           elementType: "div",
-          id: "occupationsMainContainer",
-          parent: "tableContainer",
-        },
-        {
-          elementType: "div",
           class: ["borderlessContainer", "middlePart", "column"],
           id: "occupationsBox",
-          parent: "occupationsMainContainer",
+          parent: "tableContainer",
         },
         {
           elementType: "h2",
           innerHTML: "Occupations",
+          class: "descriptionHeader",
           parent: "occupationsBox",
         },
         {
@@ -131,11 +269,12 @@ function appendChar() {
           elementType: "div",
           class: ["borderlessContainer", "column"],
           id: "traitsBox",
-          parent: "occupationsMainContainer",
+          parent: "tableContainer",
         },
         {
           elementType: "h2",
           innerHTML: "Traits",
+          class: "descriptionHeader",
           parent: "traitsBox",
         },
         {
@@ -155,6 +294,7 @@ function appendChar() {
         {
           elementType: "h2",
           parent: "desiresBox",
+          class: "descriptionHeader",
           innerHTML: "Desires",
         },
         {
@@ -172,6 +312,7 @@ function appendChar() {
     while (tableContainer.firstChild) {
       tableContainer.firstChild.remove();
     }
+    tableContainer.classList.add("tableContainerBorders");
     //goes through and appends the items located in above object to page
     for (let i = 0; i < categoriesToAppend.length; i++) {
       for (let j = 0; j < categoriesToAppend[i].length; j++) {

@@ -12,6 +12,11 @@ class Character {
   }
 
   genGender() {
+    const selectGender = document.getElementById("selectGender");
+    if (selectGender.value != "Random") {
+      return selectGender.value;
+    }
+
     let randomInt = getRandomIntInclusive(0, characteristics.gender.length - 1);
 
     return characteristics.gender[randomInt];
@@ -77,11 +82,15 @@ class Character {
   genTraits() {
     let randArr = [];
     let personalityArr = [];
+    const selectTraits = document.getElementById("selectTraits");
+    //selectTraitsValue pulls the value directly from the select input to determine which key is pulled from
+    let selectTraitsValue = selectTraits.value;
 
+    //generate 2-5 traits per character
     for (let i = 0; i < getRandomIntInclusive(2, 5); i++) {
       let num = getRandomIntInclusive(
         0,
-        characteristics.characterTraits.all.length - 1
+        characteristics.characterTraits[selectTraitsValue].length - 1
       );
       //don't want them to double up on personality traits
       if (num in randArr) {
@@ -91,7 +100,9 @@ class Character {
     }
 
     for (let i = 0; i < randArr.length; i++) {
-      personalityArr.push(characteristics.characterTraits.all[randArr[i]]);
+      personalityArr.push(
+        characteristics.characterTraits[selectTraitsValue][randArr[i]]
+      );
     }
     return personalityArr;
   }
@@ -102,13 +113,17 @@ class Character {
     let categories = [];
     let jobs = [];
     //pick 1-3 random categories of job
-
-    for (let i = 0; i < getRandomIntInclusive(1, 3); i++) {
-      let num = getRandomIntInclusive(
-        0,
-        Object.keys(characteristics.job).length - 1
-      );
-      categories.push(Object.keys(characteristics.job)[num]);
+    const selectOccupation = document.getElementById("selectOccupation");
+    if (selectOccupation.value != "Random") {
+      categories.push(selectOccupation.value);
+    } else {
+      for (let i = 0; i < getRandomIntInclusive(1, 3); i++) {
+        let num = getRandomIntInclusive(
+          0,
+          Object.keys(characteristics.job).length - 1
+        );
+        categories.push(Object.keys(characteristics.job)[num]);
+      }
     }
     //choose job from the category
     for (let i = 0; i < categories.length; i++) {

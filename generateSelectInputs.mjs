@@ -45,6 +45,7 @@ export default function generateSelectInputs() {
       //slice 1 here just removes the "all category", redundant with random
       selectionItems: Object.keys(characteristics.characterTraits).slice(1),
       labelText: "Traits",
+      randomValue: "all",
     },
 
     // desiresSelect,
@@ -58,7 +59,11 @@ export default function generateSelectInputs() {
     selectInput.name = selectInputs[i].name;
     selectInput.id = selectInputs[i].id;
     const defaultOption = document.createElement("option");
-    defaultOption.value = "Random";
+    if (selectInputs[i].randomValue) {
+      defaultOption.value = selectInputs[i].randomValue;
+    } else {
+      defaultOption.value = "Random";
+    }
     defaultOption.innerHTML = "Random";
     selectInput.append(defaultOption);
     for (let j = 0; j < selectInputs[i].selectionItems.length; j++) {

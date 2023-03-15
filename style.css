@@ -191,12 +191,25 @@ select {
   gap: 1rem;
 }
 
+.queueBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.queueNumber {
+  font-size: 1.5rem;
+  padding: 5px;
+  text-align: left;
+  min-width: 25px;
+}
 .charBtn {
   padding: 10px;
   font-size: 1rem;
   background-color: white;
   border: 1pt solid black;
   text-align: left;
+  min-width: 275px;
 }
 
 .charBtn:hover {

@@ -26,8 +26,9 @@ export default function generateSelectInputs() {
       id: "selectAge",
       selectionItems: [
         "Child",
-        "Young Adult",
-        "Middle Aged",
+        "Adolescent",
+        "Young_adult",
+        "Middle_aged",
         "Senior",
         "Wizened",
       ],

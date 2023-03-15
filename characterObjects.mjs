@@ -8,7 +8,7 @@ class Character {
     this.traits = this.genTraits();
     this.job = this.genJob();
     this.desires = this.genDesires();
-    this.ageMin = 8;
+    this.ageMin = 0;
   }
 
   genGender() {
@@ -76,8 +76,32 @@ class Character {
     }
   }
   //TODO: flesh this out to make younger ages more common
+  //Not so sure on this, it would make it more realistic, but the gen is inherent randomness
+  //maybe just make a selector for more realism and apply like that
   genAge() {
-    return getRandomIntInclusive(this.ageMin, this.ageMax);
+    const selectAge = document.getElementById("selectAge");
+    //ageRanges set the min and max allowed for random generation, ie a child is someone within the first
+    //10% of their life
+    //Using percentages as each race has different lifespans
+    const ageRanges = {
+      Random: [this.ageMin, this.ageMax * 1.15],
+      Child: [this.ageMin, this.ageMax * 0.1],
+      Adolescent: [this.ageMax * 0.1, this.ageMax * 0.2],
+      Young_adult: [this.ageMax * 0.2, this.ageMax * 0.35],
+      Middle_aged: [this.ageMax * 0.35, this.ageMax * 0.65],
+      Senior: [this.ageMax * 0.65, this.ageMax * 0.9],
+      Wizened: [this.ageMax * 0.9, this.ageMax * 1.2],
+    };
+    //TODO Maybe: seperate out logic for random with if statement, use to select among the keys,
+    //makes it possible to add additional logic for generation percentage chances
+
+    //find the chosen age range in the object, apply it to creation of age
+    const chosenAgeRange = ageRanges[selectAge.value];
+    const generatedAge = getRandomIntInclusive(
+      chosenAgeRange[0],
+      chosenAgeRange[1]
+    );
+    return generatedAge;
   }
   genTraits() {
     let randArr = [];
@@ -166,7 +190,7 @@ const raceClasses = {
     constructor() {
       super();
       this.race = "Human";
-      this.ageMax = 118;
+      this.ageMax = 100;
       this.age = this.genAge();
       this.firstName = this.genFirstName();
       this.lastName = this.genLastName();

@@ -181,10 +181,33 @@ select {
   padding: 3px;
 }
 
+#characterInfoContainer {
+  display: flex;
+  gap: 5rem;
+}
+#queueContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.charBtn {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: white;
+  border: 1pt solid black;
+  text-align: left;
+}
+
+.charBtn:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+
 #tableContainer {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 400px;
+  min-width: 400px;
   gap: 1rem;
   background-color: white;
 }
@@ -203,6 +226,7 @@ select {
   grid-template-columns: 0.5fr 1fr;
   padding: 5pt;
   gap: 1rem;
+  align-items: center;
 }
 
 .descriptionHeader {

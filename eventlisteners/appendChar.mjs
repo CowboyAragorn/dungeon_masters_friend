@@ -1,7 +1,7 @@
 import { Character, raceClasses } from "../characterObjects.mjs";
 import getRandomIntInclusive from "../utils/getRandomIntInclusive.mjs";
-import { addToCharacterStack, charStack } from "./addToCharStack.mjs";
-import appendCharStack from "./appendCharStack.mjs";
+import { addToCharQueue, charQueue } from "./addToCharQueue.mjs";
+import appendCharQueue from "./appendCharQueue.mjs";
 
 function appendChar() {
   function selectRandChar() {
@@ -216,11 +216,11 @@ function appendChar() {
 
   const randRace = selectRandChar();
   const char = new randRace();
-  addToCharacterStack(char);
+  addToCharQueue(char);
   console.log("charstack");
-  console.log(charStack);
+  console.log(charQueue);
   appendCategories(char);
-  appendCharStack();
+  appendCharQueue();
   console.log(char);
 }
 

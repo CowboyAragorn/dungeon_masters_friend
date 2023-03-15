@@ -131,13 +131,21 @@ table {
 /*Non reset CSS starts here */
 
 :root {
-  background-color: bisque;
+  background-color: #faf9f6;
 }
 
+body {
+  margin-top: 25px;
+  margin-left: 45px;
+}
+
+#pageTitle {
+  font-size: 2rem;
+}
 #btnContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   margin-bottom: 15px;
 }
 #randCharBtn {
@@ -154,18 +162,30 @@ table {
   cursor: pointer;
 }
 
+#selectInputsContainer {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 label {
   display: flex;
   flex-direction: column;
-  max-width: 100px;
+  max-width: 170px;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+}
+select {
+  font-size: 1.1rem;
+  padding: 3px;
 }
 
 #tableContainer {
   display: grid;
   grid-template-columns: 1fr;
   max-width: 400px;
-  gap: 10px;
-  margin: 5px;
+  gap: 1rem;
   background-color: white;
 }
 
@@ -182,14 +202,15 @@ label {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   padding: 5pt;
+  gap: 1rem;
 }
 
 .descriptionHeader {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 .generatedP {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 /* 
 #physicalProfileContainer {
@@ -215,7 +236,3 @@ label {
 .column {
   flex-direction: column;
 } */
-
-.generatedP {
-  font-size: 1.2rem;
-}

@@ -216,9 +216,9 @@ function appendChar() {
 
   const randRace = selectRandChar();
   const char = new randRace();
+  tableContainer.classList.remove("invisible");
+  tableContainer.classList.add("grid");
   addToCharQueue(char);
-  console.log("charstack");
-  console.log(charQueue);
   appendCategories(char);
   appendCharQueue();
   console.log(char);

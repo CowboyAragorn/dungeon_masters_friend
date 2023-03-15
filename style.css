@@ -142,6 +142,10 @@ body {
   display: none;
 }
 
+.grid {
+  display: grid;
+}
+
 #pageTitle {
   font-size: 2rem;
 }
@@ -196,7 +200,7 @@ select {
 
 #queueInstructions {
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .queueBox {
@@ -226,9 +230,10 @@ select {
 }
 
 #tableContainer {
-  display: grid;
+  /* have grid applied with a class so that I can change display iwth a class, makes it invisible on page load */
   grid-template-columns: 1fr;
-  min-width: 400px;
+  min-width: 500px;
+  min-height: 500px;
   gap: 1rem;
   background-color: white;
 }

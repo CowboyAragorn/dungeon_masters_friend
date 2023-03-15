@@ -4,22 +4,17 @@ let charQueue = [];
 function addToCharQueue(char) {
   if (charQueue.length == 10) {
     charQueue = charQueue.slice(1);
-    removeFirstDisplayedChild();
+    removeFirstInQueue();
   }
   charQueue = [...charQueue, char];
-  console.log(charQueue.length);
-  const firstChild = queueContainer.firstElementChild;
-  console.log("firstchild");
-  console.log(firstChild);
   return charQueue;
 }
 
 //when reaching 10, delete first item from DOM
-function removeFirstDisplayedChild() {
+function removeFirstInQueue() {
   const queueContainer = document.getElementById("queueContainer");
-  const firstChild = queueContainer.firstElementChild;
-  console.log(firstChild);
-  firstChild.remove();
+  const lastChild = queueContainer.lastElementChild;
+  lastChild.remove();
 }
 
 export { charQueue, addToCharQueue };

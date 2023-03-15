@@ -217,8 +217,8 @@ function appendChar() {
   const randRace = selectRandChar();
   const char = new randRace();
   addToCharacterStack(char);
-  // console.log("charstack");
-  // console.log(charStack);
+  console.log("charstack");
+  console.log(charStack);
   appendCategories(char);
   appendCharStack();
   console.log(char);

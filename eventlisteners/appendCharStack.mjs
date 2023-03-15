@@ -10,7 +10,6 @@ export default function appendCharStack() {
       charStack[i].lastName +
       " - " +
       charStack[i].race;
-    console.log(stackContainerChildren);
     //if the node exists, and if its name is the same, no need to append again
     if (stackContainerChildren[i]) {
       if (stackContainerChildren[i].innerHTML == innerHTMLIndentifier) {

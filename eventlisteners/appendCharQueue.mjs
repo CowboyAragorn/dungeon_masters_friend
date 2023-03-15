@@ -1,6 +1,8 @@
 import { charQueue } from "./addToCharQueue.mjs";
 
 export default function appendCharStack() {
+  const queueInstructions = document.getElementById("queueInstructions");
+  queueInstructions.classList.remove("invisible");
   const queueContainer = document.getElementById("queueContainer");
   let j = 0;
   for (let i = charQueue.length; i > 0; i--) {

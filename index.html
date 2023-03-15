@@ -11,10 +11,15 @@
     <h1 id="pageTitle">NPC Generator</h1>
     <div id="selectInputsContainer"></div>
     <div id="btnContainer">
-      <button id="randCharBtn">Generate Character</button>
+      <button id="randCharBtn">Generate New Character</button>
     </div>
     <div id="characterInfoContainer">
-      <div id="queueContainer"></div>
+      <div id="queueOverlord">
+        <h2 id="queueInstructions" class="invisible">
+          Previously Generated Characters - limit of 10
+        </h2>
+        <div id="queueContainer"></div>
+      </div>
       <div id="tableContainer"></div>
     </div>
     <script type="module" src="main.js"></script>

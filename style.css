@@ -138,6 +138,9 @@ body {
   margin-top: 25px;
   margin-left: 45px;
 }
+.invisible {
+  display: none;
+}
 
 #pageTitle {
   font-size: 2rem;
@@ -189,6 +192,11 @@ select {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+#queueInstructions {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 }
 
 .queueBox {
@@ -249,27 +257,3 @@ select {
 .generatedP {
   font-size: 1.4rem;
 }
-/* 
-#physicalProfileContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border: 1pt solid black;
-  border-right: none;
-  border-top: none;
-}
-
-.borderlessContainer {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-
-.middlePart {
-  border-right: 1pt solid black;
-}
-.column {
-  flex-direction: column;
-} */

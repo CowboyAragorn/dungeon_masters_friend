@@ -9,6 +9,7 @@ class Character {
     this.job = this.genJob();
     this.desires = this.genDesires();
     this.ageMin = 0;
+    this.id = this.genId();
   }
 
   genGender() {
@@ -179,6 +180,14 @@ class Character {
   genDesires() {
     let num = getRandomIntInclusive(0, characteristics.desires.all.length - 1);
     return characteristics.desires.all[num];
+  }
+  //pretty sure this is reasonably random
+  genId() {
+    const randNum1 = getRandomIntInclusive(0, 100000000).toString();
+    const randNum2 = getRandomIntInclusive(0, 100000000).toString();
+    const randNum3 = getRandomIntInclusive(0, 100000000).toString();
+    const id = randNum1 + randNum2 + randNum3;
+    return id;
   }
 }
 

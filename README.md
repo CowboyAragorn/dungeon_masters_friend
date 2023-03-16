@@ -1,6 +1,6 @@
 My attempt to make a dungeon master's toolkit
 
-currently working on:
+future additions (possibly):
 
 random character/npc creation
 

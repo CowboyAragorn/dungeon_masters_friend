@@ -2,7 +2,7 @@ import { Character, raceClasses } from "../characterObjects.mjs";
 import getRandomIntInclusive from "../utils/getRandomIntInclusive.mjs";
 import appendCategories from "./appending/appendCategories.mjs";
 import { addToCharQueue, charQueue } from "./addToCharQueue.mjs";
-import appendCharQueue from "./appending/appendCharQueue.mjs";
+import appendQueueToDOM from "./appending/appendQueueToDOM.mjs";
 
 function appendChar() {
   function selectRandChar() {
@@ -35,7 +35,7 @@ function appendChar() {
   tableContainer.classList.add("grid");
   addToCharQueue(char);
   appendCategories(char);
-  appendCharQueue();
+  appendQueueToDOM();
   console.log(char);
 }
 

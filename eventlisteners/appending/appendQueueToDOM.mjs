@@ -1,13 +1,13 @@
 import { charQueue } from "../addToCharQueue.mjs";
+import appendCharFromQueue from "./appendCharFromQueue.mjs";
 
-export default function appendCharStack() {
+export default function appendQueueToDOM() {
   const queueInstructions = document.getElementById("queueInstructions");
   queueInstructions.classList.remove("invisible");
   const queueContainer = document.getElementById("queueContainer");
   let j = 0;
   for (let i = charQueue.length; i > 0; i--) {
     const queueContainerChildren = queueContainer.childNodes;
-    console.log(queueContainerChildren);
     const innerHTMLIndentifier =
       charQueue[i - 1].firstName +
       " " +
@@ -33,9 +33,11 @@ export default function appendCharStack() {
     queueBox.append(numberDisplay);
 
     const charBtn = document.createElement("button");
+    charBtn.id = charQueue[i - 1].id;
     charBtn.classList.add("charBtn");
     charBtn.innerHTML = innerHTMLIndentifier;
     queueBox.append(charBtn);
+    charBtn.addEventListener("click", appendCharFromQueue);
     numberCharQueue();
   }
 }

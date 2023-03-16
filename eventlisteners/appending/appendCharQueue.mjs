@@ -1,4 +1,4 @@
-import { charQueue } from "./addToCharQueue.mjs";
+import { charQueue } from "../addToCharQueue.mjs";
 
 export default function appendCharStack() {
   const queueInstructions = document.getElementById("queueInstructions");
